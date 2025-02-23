@@ -19,3 +19,24 @@ def character_frequency(contents):
         else:
             characters_contained[letter] += 1
     return characters_contained
+
+def sort_on(dict):
+    #when given a dictionary, it looks at each value from the key value pair and returns only that value (allowing for sorting by frequency later)
+    for char in dict:
+        return dict[char]
+
+def list_of_frequencies(characters_contained):
+    #establishes a list to be populated by dictionaries of single key/value pairs to enable sorting.
+    list_of_characters = []
+    #loops through a dictionary and creates a list of new single key/value pairs.
+    for character in characters_contained:
+        sorted_pair = {character: characters_contained[character]}
+        list_of_characters.append(sorted_pair)
+    return list_of_characters
+
+def sort_frequencies(characters_contained):
+    #runs the list_of_frequencies function in order to generate the list of single key/value pairs
+    character_list = list_of_frequencies(characters_contained)
+    #sorts that list in order from highest frequency to lowest frequency
+    character_list.sort(reverse = True, key=sort_on)
+    return character_list
