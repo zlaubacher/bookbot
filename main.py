@@ -7,6 +7,8 @@ def get_book_text(location):
 
 from stats import word_count
 
+from stats import character_frequency
+
 def main():
     #defines the file path for the book to be read and creates it as a variable
     location = "./books/frankenstein.txt"
@@ -14,6 +16,8 @@ def main():
     contents = get_book_text(location)
     #runs the word_count function, which sets up a list of all individual words in the document and then returns that list's length
     num_words = word_count(contents)
+    num_characters = character_frequency(contents)
     print(f"{num_words} words found in the document")
+    print(num_characters)
 
 main()
